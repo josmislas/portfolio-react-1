@@ -30,24 +30,24 @@ class Login extends Component {
           client: {
             email: this.state.email,
             password: this.state.password,
-          },
+          }
         },
         { withCredentials: true }
       )
-      .then((response) => {
+      .then(response => {
         if (response.data.status === "created") {
-          console.log("You can come in...");
           this.props.handleSuccessfulAuth();
-        } else {
+        } 
+        else {
           this.setState({
             errorText: "Wrong email or password",
           });
           this.props.handleUnsuccessfulAuth();
         }
       })
-      .catch((error) => {
+      .catch(error => {
         this.setState({
-          errorText: "An error ocurred",
+          errorText: "",
         });
         this.props.handleUnsuccessfulAuth();
       });
