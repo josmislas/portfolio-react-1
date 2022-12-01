@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 
 const NavigationContainer = (props) => {
@@ -17,7 +17,7 @@ const NavigationContainer = (props) => {
   const handleSignOut = () => {
     axios
       .delete("https://api.devcamp.space/logout", { withCredentials: true })
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           props.history.push("/");
           props.handleSuccessfulLogout();
@@ -63,11 +63,13 @@ const NavigationContainer = (props) => {
       <div className="right-side">
         MIGUEL ISLAS
         {props.loggedInStatus === "LOGGED_IN" ? (
-          <a href= "/" onClick={handleSignOut}><FontAwesomeIcon icon="sign-out-alt" /></a>
+          <a href="/" onClick={handleSignOut}>
+            <FontAwesomeIcon icon="sign-out-alt" />
+          </a>
         ) : null}
       </div>
     </div>
   );
 };
 
-export default (NavigationContainer);
+export default NavigationContainer;
