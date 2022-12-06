@@ -3,7 +3,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink } from "react-router-dom";
 
-const NavigationContainer = (props) => {
+const NavigationComponent = (props) => {
   const dynamicLink = (route, linkText) => {
     return (
       <div className="nav-link-wrapper">
@@ -28,6 +28,7 @@ const NavigationContainer = (props) => {
         console.log("Error signing out", error);
       });
   };
+
   return (
     <div className="nav-wrapper">
       <div className="left-side">
@@ -61,7 +62,7 @@ const NavigationContainer = (props) => {
       </div>
 
       <div className="right-side">
-        MIGUEL ISLAS
+        Miguel Islas
         {props.loggedInStatus === "LOGGED_IN" ? (
           <a href="/" onClick={handleSignOut}>
             <FontAwesomeIcon icon="sign-out-alt" />
@@ -72,4 +73,4 @@ const NavigationContainer = (props) => {
   );
 };
 
-export default NavigationContainer;
+export default NavigationComponent;
